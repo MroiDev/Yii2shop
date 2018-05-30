@@ -5,7 +5,9 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+
 
 AppAsset::register($this);
 ?>
@@ -26,38 +28,22 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Vehicles Store</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Link 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Link 1 (will be implemented later)</a>
-                    <a class="dropdown-item" href="#">Link 2 (will be implemented later)</a>
-                    <a class="dropdown-item" href="#">Link 3 (will be implemented later)</a>
-                </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/">Vehicles Store</a></h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/admin/category">Category</a>
+        <a class="p-2 text-dark" href="/admin/products">Products</a>
+      </nav>
+      <a class="btn btn-outline-primary" href="/admin">Admin panel</a>
     </div>
-</nav>
 <!--/ Navbar -->
 
 <main role="main" class="container">
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+    <?= Alert::widget() ?>
+
     <?= $content ?>
 </main>
 

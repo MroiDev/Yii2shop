@@ -11,6 +11,7 @@ use Yii;
  * @property int $category_id
  * @property string $name
  * @property string $description
+ * @property string $img
  * @property int $price
  * @property string $amount
  *
@@ -35,7 +36,7 @@ class Products extends \yii\db\ActiveRecord
             [['category_id', 'price', 'amount'], 'integer'],
             [['name'], 'required'],
             [['description'], 'string'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'img'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -50,6 +51,7 @@ class Products extends \yii\db\ActiveRecord
             'category_id' => Yii::t('app', 'Category ID'),
             'name' => Yii::t('app', 'Name'),
             'description' => Yii::t('app', 'Description'),
+            'img' => Yii::t('app', 'Img'),
             'price' => Yii::t('app', 'Price'),
             'amount' => Yii::t('app', 'Amount'),
         ];

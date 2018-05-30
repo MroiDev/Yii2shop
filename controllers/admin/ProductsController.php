@@ -3,6 +3,7 @@
 namespace app\controllers\admin;
 
 use Yii;
+use app\models\Category;
 use app\models\Products;
 use app\models\ProductsSearch;
 use yii\web\Controller;
@@ -64,6 +65,8 @@ class ProductsController extends Controller
      */
     public function actionCreate()
     {
+        $category = Category::find()->select(['id', 'name'])->all();
+
         $model = new Products();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -72,6 +75,7 @@ class ProductsController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'category' => $category,
         ]);
     }
 
@@ -84,6 +88,8 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
+        $category = Category::find()->select(['id', 'name'])->all();
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -92,6 +98,7 @@ class ProductsController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'category' => $category,
         ]);
     }
 
