@@ -12,7 +12,7 @@ $items = \yii\helpers\ArrayHelper::map($category, 'id', 'name');
 
 <div class="products-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'category_id')->dropDownList($items, [
             'prompt' => 'Выбор категории'
@@ -22,7 +22,7 @@ $items = \yii\helpers\ArrayHelper::map($category, 'id', 'name');
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'file')->fileInput() ?>
 
     <?= $form->field($model, 'price')->textInput() ?>
 

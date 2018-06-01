@@ -16,23 +16,23 @@ use yii\widgets\ActiveForm;
         'options' => [
             'data-pjax' => 1
         ],
-    ]); ?>
+    ]);
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'id')
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'title')
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'name')
 
-    <?= $form->field($model, 'description') ?>
+    <?= $form->field($model, 'description')
 
-    <?= $form->field($model, 'active') ?>
+    <?= $form->field($model, 'active')
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Search', ['class' => 'btn btn-primary'])
+        <?= Html::resetButton('Reset', ['class' => 'btn btn-default'])
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end();
 
 </div>
